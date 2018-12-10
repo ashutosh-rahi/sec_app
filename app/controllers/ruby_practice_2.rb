@@ -1,13 +1,28 @@
-def mask_article(str, arr)
-    for i in arr
-        s=strike(str, i)
-    end
-    return s
+class Person
+	#attr_accessor :name,:age
+	def initialize(nam="", ag=10)
+		@name=nam
+		@age=ag
+	end
+	def printDetails
+		puts "Name=#{@name} and Age=#{@age}"
+	end
 end
 
-def strike(str, word)
-    st="<strike>"+word+"</strike>"
-    return str.gsub(word,st)
+class Student<Person
+	def self.dept		
+		puts "IT"
+	end
+	def initialize(name="", age=10, roll_no=0)
+		super(name,age)
+		@roll_no=roll_no
+
+	end
+	def printDetails
+		puts "Name=#{@name} and Age=#{@age} and Roll Number=#{@roll_no}"
+	end
 end
 
-puts mask_article("Hello World! This is crap!", ["crap"]).class
+p=Student.new("Ashutosh",21,26)
+p.printDetails
+Student.dept
